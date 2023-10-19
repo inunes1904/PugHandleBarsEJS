@@ -1,0 +1,22 @@
+extends layouts/main-layout.pug
+
+block styles
+        link(rel="stylesheet", href="/css/product.css")
+
+block content
+    main
+        if prods.length > 0 
+            .grid
+            each product in prods
+                article.card.product-item 
+                    header.card__header 
+                        h1.product__title #{product.title}
+                    div.card__image 
+                        img(src="https://img.freepik.com/free-photo/open-book-icon-symbol-yellow-background-education-bookstore-concept-3d-rendering_56104-1334.jpg?w=1060&t=st=1697664259~exp=1697664859~hmac=c9ddd740670cd24eca24ecd585d2bc9521c07fafbf40714cb855a631f5f7c468", alt="", srcset="")
+                    div.card__content 
+                        h2.product__price 19.99€
+                        p.product__description A very interesting personalities 
+                    .card__actions 
+                        button.btn Add to Cart
+        else 
+            h1 No Products
